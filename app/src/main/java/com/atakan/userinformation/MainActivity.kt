@@ -17,7 +17,15 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch{
             val result = infoUs.getInfo()
             if(result != null){
-                println(result.body()?.city)
+                binding.apply {
+                    city.text = result.body()?.city.toString()
+                    country.text = result.body()?.country_name.toString()
+                    lat.text = result.body()?.latitude.toString()
+                    longt.text = result.body()?.longitude.toString()
+                    timezone.text = result.body()?.timezone.toString()
+                    currency.text = result.body()?.currency.toString()
+                    org.text = result.body()?.org.toString()
+                }
             }
         }
 
